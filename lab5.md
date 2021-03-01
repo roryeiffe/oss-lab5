@@ -149,7 +149,7 @@ add_library(MathFunctions mysqrt.cxx)
 
 ##### Output:
 
-![Step 1 Output](Step2_Ubuntu.jpg)
+![Step 2 Output](Step2_Ubuntu.jpg)
 
 ### Step 3
 
@@ -202,7 +202,7 @@ target_include_directories(MathFunctions
 
 ##### Output:
 
-![Step 1 Output](Step3_Ubuntu.jpg)
+![Step 3 Output](Step3_Ubuntu.jpg)
 
 
 ### Step 4
@@ -296,7 +296,7 @@ install(FILES MathFunctions.h DESTINATION include)
 
 ##### Output:
 
-![Step 1 Output](Step4_Ubuntu.jpg)
+![Step 4 Output](Step4_Ubuntu.jpg)
 
 ### Step 5
 
@@ -451,4 +451,37 @@ double mysqrt(double x)
 
 ##### Output:
 
-![Step 1 Output](Step5_Ubuntu.jpg)
+![Step 5 Output](Step5_Ubuntu.jpg)
+
+# Creating Libraries:
+
+#### Make Files:
+
+##### Making libraries:
+
+```
+clean:
+	gcc -c block.c -o lib_static.o 
+	ar rcs lib_static.a lib_static.o
+
+	gcc -c block.c -o lib_dynamic.o -shared
+	ar  rcs lib_dynamic.a lib_dynamic.o
+```
+
+##### Creating Programs:
+
+```
+clean:
+	gcc -c program.c -o program.o
+	gcc -o static_block program.o -L./source -l_static
+	gcc -o dynamic_block program.o -L./source -l_dynamic
+```
+
+##### Cmake File:
+
+```
+```
+
+##### Output:
+
+![Dynamic_static output](dynamic_static.jpg)
