@@ -484,4 +484,4 @@ clean:
 
 ##### Output:
 
-![Dynamic_static output](dynamic_static.jpg)
+![Dynamic_static output](static_dynamic.jpg)
